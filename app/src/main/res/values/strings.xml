@@ -1,0 +1,67 @@
+<resources>
+    <string name="app_name">LikeLive</string>
+    <string name="chooseLoginWay">请选择登录方式</string>
+    <string name="sinaWeibo">新浪微博</string>
+    <string name="phoneLogin">手机登陆</string>
+    <string name="zhibo">直播</string>
+    <string name="focus">关注</string>
+    <string name="my">我的</string>
+    <string name="inputPhoneNum">请输入手机号</string>
+    <string name="inputPassword">请输入密码</string>
+    <string name="regist">注册</string>
+    <string name="search_hint">输入主播昵称或者ID</string>
+    <string name="my_login_regist"><![CDATA[    登陆/注册    ]]></string>
+    <string name="options_center">设置</string>
+    <string name="voucher_center">充值</string>
+    <string name="personal_center">个人</string>
+    <string name="options"><![CDATA[设  置]]></string>
+    <string name="push_notifications">推送提醒</string>
+    <string name="user_suggest">用户建议</string>
+    <string name="message">联系我们</string>
+    <string name="update">检查更新</string>
+    <string name="clear_away">清除缓存</string>
+    <string name="registAccount">注册账号</string>
+    <string name="inputUserName">请输入用户名</string>
+    <string name="inputPass">请输入密码</string>
+    <string name="login">登 陆</string>
+    <string name="forgetPass">忘记密码?</string>
+    <string name="otherLoginWay">其他登录方式</string>
+    <string name="likeLive">LIKE直播</string>
+    <string name="registLiveAccount">注册LIVE账号</string>
+    <string name="inputPhoneSureNum">请输入手机验证码</string>
+    <string name="getSureNum">获取验证码</string>
+    <string name="getPassBack">找回密码</string>
+    <string name="yourAccount">您的账号:</string>
+    <string name="accountOrPhone">账号/手机号</string>
+    <string name="ensureNum">验  证  码 :</string>
+    <string name="inputSureNum">请输入验证码</string>
+    <string name="QQ">QQ</string>
+    <string name="weiBo">微博</string>
+    <string name="picture">图库</string>
+    <string name="camera">拍照</string>
+    <string name="cancel">取消</string>
+    <string name="change_sex">性别</string>
+    <string name="man">男</string>
+    <string name="woman">女</string>
+    <string name="change_nickname">昵称</string>
+    <string name="bigStar">大牌明星榜</string>
+    <string name="SearchHotRecommend">热门主播</string>
+    <string name="saysome">和大家说点什么</string>
+    <string name="send">发送</string>
+    <string name="gift">礼物</string>
+    <string name="pay">充值</string>
+    <string name="done">赠送</string>
+    <item name="bg" type="id"/>
+    <item name="fragment_home" type="id"/>
+    <item name="fragment_focus" type="id"/>
+    <item name="fragment_my" type="id"/>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="loginCanFocus">登陆后可随时关注主播动态喔</string>
+    <string name="recommendLive">推荐直播</string>
+    <string name="pay2">充值</string>
+    <string name="logout">注销</string>
+    <string name="NewPassword">新 密 码 :</string>
+    <string name="InputNewPass">请输入您的新密码</string>
+    <string name="changePassword">修改密码</string>
+</resources>

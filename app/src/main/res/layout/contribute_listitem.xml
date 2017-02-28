@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="250px"
+
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200px"
+        android:padding="20px"
+        >
+        <TextView
+            android:id="@+id/tv_level"
+            android:layout_width="70px"
+            android:layout_height="70px"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/leaderboard_anchor_second"
+            />
+        <ImageView
+            android:id="@+id/circleImg_portrait"
+            android:layout_width="100px"
+            android:layout_height="100px"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/tv_level"
+            android:layout_marginLeft="60px"
+            android:src="@mipmap/login_icon"
+            />
+        <TextView
+            android:id="@+id/tv_contributorName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nickname"
+            android:layout_centerInParent="true"
+            />
+        <TextView
+            android:id="@+id/tv_contributionCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="500贡献值"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/tv_contributorName"
+            android:layout_marginLeft="100px"
+            />
+    </RelativeLayout>
+
+</LinearLayout>

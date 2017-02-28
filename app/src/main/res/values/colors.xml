@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="transparent">#00000000</color>
+    <color name="background">#bbbbbb</color>
+    <color name="line">#a4e2e2e2</color>
+    <color name="white">#ffffff</color>
+    <color name="search_bg">#c1e1e1e1</color>
+    <color name="colorFrame">#FA3A70</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorBackground">#F9F9F9</color>
+    <color name="colorGray">#bbb</color>
+    <color name="colorGray1">#f2f2f2</color>
+    <color name="colorGreen">#23CA2D</color>
+    <color name="colorBlack">#f03e3e3e</color>
+    <color name="colorBlack3">#c03e3e3e</color>
+    <color name="colorBlack2">#f0252525</color>
+    <color name="colorGiftBG">#CDCCDC</color>
+    <color name="playerInfoBG">#bb0d0014</color>
+    <color name="belle_background">#ffb3c8</color>
+    <color name="golden_yellow">#fff23c</color>
+</resources>

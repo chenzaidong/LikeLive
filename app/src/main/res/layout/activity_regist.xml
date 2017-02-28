@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_regist"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <RelativeLayout
+        android:id="@+id/registhead"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_80"
+        android:padding="@dimen/size_10"
+        android:layout_marginTop="20px"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/registLiveAccount"
+            android:layout_centerInParent="true"
+            android:textSize="@dimen/size_40"
+            />
+        <ImageView
+            android:id="@+id/backArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_back"
+            />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_regist"
+        android:layout_below="@+id/et_pass"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_80"
+        android:background="@drawable/loginbutton"
+        android:layout_marginLeft="@dimen/size_70"
+        android:layout_marginRight="@dimen/size_70"
+        android:layout_marginTop="@dimen/size_60"
+        android:text="@string/regist"
+        android:gravity="center"
+        android:textSize="@dimen/size_40"
+        android:textColor="@color/white"
+        />
+    <RelativeLayout
+        android:id="@+id/sureNumLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_phone"
+        android:layout_marginLeft="@dimen/size_30"
+        android:layout_marginRight="@dimen/size_30"
+        android:layout_marginTop="@dimen/size_25"
+        >
+
+        <Button
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/size_70"
+            android:text="@string/getSureNum"
+            android:background="@drawable/send"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/btn_getCaptcha"
+            android:textColor="@color/colorAccent"
+            />
+
+        <android.support.design.widget.TextInputEditText
+            android:inputType="number"
+            android:id="@+id/et_sureNum"
+            android:layout_width="@dimen/size_400"
+            android:layout_height="wrap_content"
+            android:hint="@string/inputPhoneSureNum"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="12dp"/>
+    </RelativeLayout>
+
+    <android.support.design.widget.TextInputEditText
+        android:inputType="phone"
+        android:id="@+id/et_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size_25"
+        android:layout_marginLeft="@dimen/size_50"
+        android:layout_marginRight="@dimen/size_50"
+        android:hint="@string/inputPhoneNum"
+        android:layout_below="@+id/registhead"
+        />
+
+    <android.support.design.widget.TextInputEditText
+        android:inputType="textPassword"
+        android:id="@+id/et_pass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size_25"
+        android:layout_marginLeft="@dimen/size_50"
+        android:layout_marginRight="@dimen/size_50"
+        android:hint="@string/inputPassword"
+        android:layout_below="@+id/sureNumLayout"
+        />
+
+</RelativeLayout>

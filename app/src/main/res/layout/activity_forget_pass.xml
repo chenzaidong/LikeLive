@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_forget_pass"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <RelativeLayout
+        android:id="@+id/tv_findPass"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_90">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/forgetPass"
+            android:textSize="@dimen/size_50"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/size_20"
+            />
+        <ImageView
+            android:id="@+id/img_backF"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_back"
+            />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_accout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_80"
+        android:layout_marginTop="@dimen/size_20"
+        android:layout_below="@+id/tv_findPass"
+        >
+
+        <TextView
+            android:layout_width="@dimen/size_200"
+            android:layout_height="match_parent"
+            android:text="@string/yourAccount"
+            android:gravity="center"
+            android:textSize="@dimen/size_40"
+            android:id="@+id/textView2"/>
+
+        <EditText
+            android:id="@+id/et_phoneNum"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/inputPhoneNum"
+            />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/yzmlayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_80"
+        android:layout_marginTop="@dimen/size_20"
+        android:layout_below="@+id/layout_accout"
+        android:layout_alignParentStart="true">
+        <TextView
+            android:id="@+id/tv_yzm"
+            android:layout_width="@dimen/size_200"
+            android:layout_height="match_parent"
+            android:text="@string/ensureNum"
+            android:gravity="center"
+            android:textSize="@dimen/size_40"
+            />
+
+        <Button
+            android:id="@+id/btn_Captcha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/getSureNum"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20px"
+            android:background="@drawable/send"
+            />
+
+        <EditText
+            android:id="@+id/et_yzm"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:hint="@string/inputSureNum"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/tv_yzm"/>
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_forgetLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        android:text="@string/changePassword"
+        android:layout_below="@+id/newPassLayout"
+        android:background="@drawable/send"
+        />
+
+    <LinearLayout
+        android:id="@+id/newPassLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_80"
+        android:layout_marginTop="@dimen/size_20"
+        android:layout_below="@+id/yzmlayout"
+        android:layout_alignParentStart="true">
+        <TextView
+            android:layout_width="@dimen/size_200"
+            android:layout_height="match_parent"
+            android:text="@string/NewPassword"
+            android:gravity="center"
+            android:textSize="@dimen/size_40"
+            />
+        <EditText
+            android:id="@+id/et_newPass"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/InputNewPass"
+            />
+
+    </LinearLayout>
+</RelativeLayout>

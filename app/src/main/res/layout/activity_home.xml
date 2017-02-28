@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    android:id="@+id/activity_home"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="cc.myandroid.likelive.ui.activity.HomeActivity">
+    <FrameLayout
+        android:id="@+id/replace"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px_0"
+        android:layout_weight="1"/>
+
+    <LinearLayout
+        android:background="@color/line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_3"
+        android:orientation="horizontal"/>
+        <RadioGroup
+            android:layout_marginTop="@dimen/size_5"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:id="@+id/rg_home"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_100">
+
+            <RadioButton
+                android:id="@+id/rb_home"
+                android:drawableTop="@drawable/home_ico_select"
+                android:gravity="center"
+                android:button="@null"
+                android:text="@string/zhibo"
+                android:textColor="@color/home_color_selector"
+                android:textSize="@dimen/size_25"
+                android:layout_width="@dimen/size_0"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <RadioButton
+                android:id="@+id/rb_focus"
+                android:textColor="@color/home_color_selector"
+                android:textSize="@dimen/size_25"
+                android:drawableTop="@drawable/focus_ico_select"
+                android:gravity="center"
+                android:button="@null"
+                android:text="@string/focus"
+                android:layout_width="@dimen/px_0"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <RadioButton
+                android:id="@+id/rb_my"
+                android:textColor="@color/home_color_selector"
+                android:textSize="@dimen/size_25"
+                android:drawableTop="@drawable/me_ico_select"
+                android:gravity="center"
+                android:button="@null"
+                android:text="@string/my"
+                android:layout_width="@dimen/px_0"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+        </RadioGroup>
+</LinearLayout>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="350px">
+
+    <RelativeLayout
+        android:id="@+id/firstPlaceLayout"
+        android:layout_width="match_parent"
+        android:layout_height="350px"
+
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+        <ImageView
+            android:id="@+id/img_first"
+            android:layout_centerHorizontal="true"
+            android:layout_width="40px"
+            android:layout_height="40px"
+            android:layout_marginTop="20px"
+            android:src="@mipmap/leaderboard_anchor_first"
+            />
+        <ImageView
+            android:id="@+id/circleImgFirst"
+            android:layout_below="@+id/img_first"
+            android:layout_width="80px"
+            android:layout_height="80px"
+            android:src="@mipmap/login_icon"
+            android:layout_centerHorizontal="true"
+            />
+        <TextView
+            android:id="@+id/tv_FirstNickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="nickName"
+            android:layout_marginTop="20px"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/circleImgFirst"
+            />
+        <TextView
+            android:id="@+id/tv_FirstContriCount"
+            android:layout_below="@+id/tv_FirstNickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="贡献值"
+            android:layout_marginTop="20px"
+            android:layout_centerHorizontal="true"
+            />
+    </RelativeLayout>
+</RelativeLayout>

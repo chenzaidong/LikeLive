@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:background="@color/colorBlack"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+<TextView
+    android:layout_margin="@dimen/size_20"
+    android:textColor="@color/colorAccent"
+    android:gravity="center"
+    android:textSize="@dimen/size_40"
+    android:text="@string/gift"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>
+    <View
+        android:background="@color/colorAccent"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_2"/>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_0"/>
+    <LinearLayout
+        android:background="@color/transparent"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_margin="@dimen/size_20"
+            android:textColor="@color/colorAccent"
+            android:background="@drawable/pay_button_bg"
+            android:text="@string/pay"
+            android:layout_width="@dimen/size_200"
+            android:layout_height="@dimen/size_80"
+            android:id="@+id/btn_pay"/>
+
+        <View
+            android:layout_weight="1"
+            android:layout_width="@dimen/size_0"
+            android:layout_height="@dimen/size_0"/>
+        <Button
+            android:id="@+id/btn_num"
+            android:paddingStart="@dimen/size_20"
+            android:background="@drawable/gift_num_bg"
+            android:drawableEnd="@mipmap/ic_more"
+            android:textSize="@dimen/size_30"
+            android:text="9918"
+            android:textColor="@color/white"
+            android:layout_width="@dimen/size_200"
+            android:layout_height="@dimen/size_80"/>
+        <Button
+            android:id="@+id/btn_done"
+            android:text="@string/done"
+            android:textColor="@color/white"
+            android:background="@color/colorAccent"
+            android:layout_width="@dimen/size_150"
+            android:layout_height="@dimen/size_80"/>
+    </LinearLayout>
+</LinearLayout>

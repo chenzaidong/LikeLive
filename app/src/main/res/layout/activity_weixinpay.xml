@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_weixinpay"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="cc.myandroid.likelive.ui.activity.WeixinpayActivity">
+    <RelativeLayout
+        android:id="@+id/payhead_layout"
+        android:layout_width="match_parent"
+        android:layout_height="80px"
+        android:background="#2d201e"
+
+        >
+        <ImageView
+            android:id="@+id/img_back2"
+            android:layout_width="50px"
+            android:layout_height="match_parent"
+            android:src="@mipmap/ic_backto"
+            android:layout_marginLeft="20px"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="确认支付"
+            android:layout_toRightOf="@+id/img_back2"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_marginLeft="50px"
+            android:textSize="35px"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/money_layout"
+        android:layout_width="match_parent"
+        android:layout_height="250px"
+
+        android:layout_below="@+id/payhead_layout"
+        android:layout_alignParentStart="true">
+        <TextView
+
+            android:id="@+id/tv_aibi"
+            android:layout_width="wrap_content"
+            android:layout_height="35px"
+            android:text="爱直播爱币"
+            android:textSize="30px"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30px"
+            />
+        <TextView
+            android:id="@+id/tv_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="100.00"
+            android:textSize="100px"
+            android:layout_below="@+id/tv_aibi"
+            android:layout_marginTop="20px"
+            android:layout_centerHorizontal="true"
+            android:textColor="#080908"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:background="@color/white"
+        android:id="@+id/company_layout"
+        android:layout_width="match_parent"
+        android:layout_height="80px"
+        android:layout_below="@+id/money_layout"
+        >
+        <TextView
+            android:layout_marginLeft="30px"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="收款方"
+            android:gravity="center"
+            />
+        <TextView
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="四川省爱看传媒有限公司"
+            android:gravity="center"
+            android:layout_marginRight="30px"
+            />
+    </RelativeLayout>
+    <Button
+        android:id="@+id/btn_pay"
+        android:layout_below="@id/company_layout"
+        android:layout_width="match_parent"
+        android:layout_height="90px"
+        android:layout_marginTop="30px"
+        android:background="@drawable/pay_immediately"
+        android:text="立即支付"
+        android:textSize="@dimen/size_35"
+        android:textColor="@color/white"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        />
+</RelativeLayout>
