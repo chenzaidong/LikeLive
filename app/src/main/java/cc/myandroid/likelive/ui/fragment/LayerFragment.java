@@ -99,7 +99,7 @@ public class LayerFragment extends Fragment implements View.OnClickListener, IRo
     /**
      * 数据相关
      */
-    private List<View> giftViewCollection = new ArrayList<View>();
+    private List<View> giftViewCollection = new ArrayList<>();
     private List<String> messageData = new LinkedList<>();
     private MessageAdapter messageAdapter;
     private RoomInfoContract.IRoomInfoPresenter iRoomInfoPresenter;
@@ -312,7 +312,7 @@ public class LayerFragment extends Fragment implements View.OnClickListener, IRo
 
             CustomRoundView crvheadimage = (CustomRoundView) giftView.findViewById(R.id.crvheadimage);
             CustomRoundView ivGift = (CustomRoundView) giftView.findViewById(R.id.ivgift);
-            Bitmap bitmap = BitmapFactory.decodeResource(mContext.getResources(), R.mipmap.ico);
+            Bitmap bitmap = BitmapFactory.decodeResource(mContext.getResources(), R.mipmap.logo);
             if (mUser.getIcon() != null) {
                 bitmap = BitmapFactory.decodeFile(mUser.getIcon());
             }

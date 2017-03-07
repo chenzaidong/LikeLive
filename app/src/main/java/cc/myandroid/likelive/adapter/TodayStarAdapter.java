@@ -40,7 +40,7 @@ public class TodayStarAdapter extends BaseRecyclerAdapter<TodayStarResult.ListBe
     public void onBind(RecyclerView.ViewHolder viewHolder, int realPosition, TodayStarResult.ListBean data) {
         MyViewHolder holder = (MyViewHolder) viewHolder;
         holder.tvTitle.setText(data.getNickname());
-        ImageUtil.laodImage(context,data.getPlayer_image(),holder.imgHeadPortrait,ImageUtil.ROUND,20);
+        ImageUtil.laodImage(context,data.getPlayer_image(),holder.imgHeadPortrait,ImageUtil.ROUND,10);
         holder.sexBelle.setText(data.getTag().get(0));
         if (data.getIs_live()==1){
             holder.imgTelMode.setVisibility(View.VISIBLE);

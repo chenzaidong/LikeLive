@@ -39,7 +39,7 @@ public class HotRecommendAdapter extends BaseRecyclerAdapter<HotRecommendResult.
     public void onBind(RecyclerView.ViewHolder viewHolder, int realPosition, HotRecommendResult.ListBean data) {
         MyViewHolder holder = (MyViewHolder) viewHolder;
         holder.tvTitle.setText(data.getNickname());
-        ImageUtil.laodImage(context,data.getPlayer_image(),holder.imgHeadPortrait,ImageUtil.ROUND,20);
+        ImageUtil.laodImage(context,data.getPlayer_image(),holder.imgHeadPortrait,ImageUtil.ROUND,10);
         holder.sexBelle.setText(data.getTag().get(0));
         holder.tvNum.setText(String.valueOf(data.getRoom_user_nums()));
         if (data.getIs_live() == 1) {

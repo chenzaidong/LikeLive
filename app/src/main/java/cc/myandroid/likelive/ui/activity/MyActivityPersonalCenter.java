@@ -43,7 +43,7 @@ public class MyActivityPersonalCenter extends BaseActivity implements View.OnCli
     private LinearLayout click_picture, click_camera, click_cancel;
     private RelativeLayout head, nickname, sex;
     private ImageView img_head_portrait;
-    CheckBox chb_man,chb_woman;
+    CheckBox chb_man, chb_woman;
     private String change_sex;//定义一个全局的变量,用户选着什么就是什么
     private Uri muri;//图片保存的地址
     private User user;
@@ -52,7 +52,7 @@ public class MyActivityPersonalCenter extends BaseActivity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_personal_center);
-        muri=Uri.fromFile(new File(Environment.getExternalStorageDirectory(),"temp.jpg"));
+        muri = Uri.fromFile(new File(Environment.getExternalStorageDirectory(), "temp.jpg"));
         init();
     }
 
@@ -85,11 +85,12 @@ public class MyActivityPersonalCenter extends BaseActivity implements View.OnCli
         tv_nickName = (TextView) findViewById(R.id.tv_nickName);
         tv_sex = (TextView) findViewById(R.id.tv_sex);
 
-        if (user!=null){
-            if (user.getIcon()==null){
+        if (user != null) {
+            if (user.getIcon() == null) {
                 img_head_portrait.setImageResource(R.mipmap.login_icon);
-            }else {
-                ImageUtil.laodImage(this,user.getIcon(),img_head_portrait);
+            } else {
+                File file = new File(user.getIcon());
+                ImageUtil.laodImage(this, file, img_head_portrait,ImageUtil.CIRCLE,0);
             }
             tv_nickName.setText(user.getNickname());
             tv_sex.setText(user.getGender());
@@ -123,8 +124,8 @@ public class MyActivityPersonalCenter extends BaseActivity implements View.OnCli
     private void showSexChange() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         View view = getLayoutInflater().inflate(R.layout.change_sex, null);
-        chb_man= (CheckBox) view.findViewById(R.id.chb_man);
-        chb_woman= (CheckBox) view.findViewById(R.id.chb_woman);
+        chb_man = (CheckBox) view.findViewById(R.id.chb_man);
+        chb_woman = (CheckBox) view.findViewById(R.id.chb_woman);
         chb_man.setOnCheckedChangeListener(this);
         chb_woman.setOnCheckedChangeListener(this);
         builder.setView(view)
@@ -132,7 +133,7 @@ public class MyActivityPersonalCenter extends BaseActivity implements View.OnCli
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         tv_sex.setText(change_sex);
-                        Toast.makeText(MyActivityPersonalCenter.this,"修改成功",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MyActivityPersonalCenter.this, "修改成功", Toast.LENGTH_SHORT).show();
                     }
                 })
                 .setNegativeButton("取消", null);
@@ -142,20 +143,21 @@ public class MyActivityPersonalCenter extends BaseActivity implements View.OnCli
 
     /**
      * 选着性别的监听
+     *
      * @param buttonView
      * @param isChecked
      */
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        if (chb_man.getId()==buttonView.getId()){
-            if (isChecked){
+        if (chb_man.getId() == buttonView.getId()) {
+            if (isChecked) {
                 chb_woman.setChecked(false);
-                change_sex="男";
+                change_sex = "男";
             }
-        }else if(chb_woman.getId()==buttonView.getId()){
-            if (isChecked){
+        } else if (chb_woman.getId() == buttonView.getId()) {
+            if (isChecked) {
                 chb_man.setChecked(false);
-                change_sex="女";
+                change_sex = "女";
             }
         }
         user.setGender(change_sex);
@@ -184,7 +186,6 @@ public class MyActivityPersonalCenter extends BaseActivity implements View.OnCli
                 .setNegativeButton("取消", null);
         AlertDialog dialog = builder.create();
         dialog.show();
-
     }
 
     /**
@@ -217,16 +218,14 @@ public class MyActivityPersonalCenter extends BaseActivity implements View.OnCli
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.click_picture:
-                    Intent intent=new Intent(Intent.ACTION_PICK);
-                    intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,"image/*");
+                    Intent intent = new Intent(Intent.ACTION_PICK);
+                    intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
                     startActivityForResult(intent, 1);
                     mPopupWindow.dismiss();
                     break;
                 case R.id.click_camera:
-                    /*Intent intent1 = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                    intent1.putExtra(MediaStore.EXTRA_OUTPUT,muri);
-                    startActivityForResult(intent1, 2);*/
                     Intent intent1 = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    intent1.putExtra(MediaStore.EXTRA_OUTPUT, muri);
                     startActivityForResult(intent1, 2);
                     mPopupWindow.dismiss();
                     break;
@@ -247,55 +246,63 @@ public class MyActivityPersonalCenter extends BaseActivity implements View.OnCli
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1) {//图库
-            Uri uri=data.getData();
-            Bitmap bitmap=decodesampledBitmapFromResource(uri,img_head_portrait.getWidth(),img_head_portrait.getHeight());
-            bitmap.recycle();
-            img_head_portrait.setImageBitmap(bitmap);
-        } else if (requestCode == 2) {//拍照
-            Bundle bundle=data.getExtras();
-            Bitmap bitmap= (Bitmap) bundle.get("data");
-            Log.e("-----------------",bitmap.getHeight()+"-----------"+bitmap.getWidth());
-            img_head_portrait.setImageBitmap(bitmap);
+        if (resultCode == RESULT_OK) {
+            if (requestCode == 1) {//图库
+                Uri uri = data.getData();
+                Bitmap bitmap = decodesampledBitmapFromResource(uri, img_head_portrait.getWidth(), img_head_portrait.getHeight());
+                img_head_portrait.setImageBitmap(bitmap);
+                user.setIcon(findPath(uri));
+                SPUtils.saveUser(user);
+                DBManager.getInstance().updateUser(user);
+            } else if (requestCode == 2) {//拍照
+                Bitmap bitmap = decodesampledBitmapFromResource(muri.getPath(), img_head_portrait.getWidth(), img_head_portrait.getHeight());
+                img_head_portrait.setImageBitmap(bitmap);
+                user.setIcon(muri.getPath());
+                SPUtils.saveUser(user);
+                DBManager.getInstance().updateUser(user);
+            }
         }
     }
 
-    public Bitmap decodesampledBitmapFromResource(Uri uri,int reqWidth,int reqHeigth){
-
-        BitmapFactory.Options options=new BitmapFactory.Options();
-        options.inJustDecodeBounds=true;
-        String path=findPath(uri);
-        BitmapFactory.decodeFile(path,options);
-        options.inSampleSize=calculateInSampleSize(options,reqWidth,reqHeigth);
-        options.inJustDecodeBounds=false;
-        return BitmapFactory.decodeFile(path,options);
+    public Bitmap decodesampledBitmapFromResource(Uri uri, int reqWidth, int reqHeigth) {
+        return decodesampledBitmapFromResource(findPath(uri), reqWidth, reqHeigth);
     }
 
-    public int calculateInSampleSize(BitmapFactory.Options options,int reqWidth,int reqHeigth){
+    public Bitmap decodesampledBitmapFromResource(String path, int reqWidth, int reqHeigth) {
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeFile(path, options);
+        options.inSampleSize = calculateInSampleSize(options, reqWidth, reqHeigth);
+        options.inJustDecodeBounds = false;
+        return BitmapFactory.decodeFile(path, options);
+    }
+
+    public int calculateInSampleSize(BitmapFactory.Options options, int reqWidth, int reqHeigth) {
         //获取位图的宽高
-        int width=options.outWidth;
-        int heigth=options.outHeight;
-        Log.e("------------",heigth+"");
-        int inSampleSize=1;
-        if(heigth>reqHeigth||width>reqWidth){
-            if (width>heigth){
-                inSampleSize=Math.round((float)heigth/(float)reqHeigth);
-            }else {
-                inSampleSize=Math.round((float)width/(float)reqWidth);
+        int width = options.outWidth;
+        int heigth = options.outHeight;
+        Log.e("------------", heigth + "");
+        int inSampleSize = 1;
+        if (heigth > reqHeigth || width > reqWidth) {
+            if (width > heigth) {
+                inSampleSize = Math.round((float) heigth / (float) reqHeigth);
+            } else {
+                inSampleSize = Math.round((float) width / (float) reqWidth);
             }
         }
         return inSampleSize;
     }
+
     private String findPath(Uri uri) {
         //在哪里去找
-        String[] proj={MediaStore.Images.Media.DATA};
+        String[] proj = {MediaStore.Images.Media.DATA};
         //下面就要去找了
         Cursor cursor = managedQuery(uri, proj, null, null, null);   //返回了一个游标
         //通过字段首选查找那个字段额索引
         int index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
         cursor.moveToFirst();
-        String path=cursor.getString(index);
-        Log.e("路径是:",path);
+        String path = cursor.getString(index);
+        Log.e("路径是:", path);
         return path;
     }
 }

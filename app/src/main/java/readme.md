@@ -28,7 +28,7 @@
     五、注册登陆界面
 
 # 使用技术：
-    设计模式 mvp
+    程序架构 mvp
     视频播放框架  BVideoView
     控件查找  butterknife
     图片加载 glide

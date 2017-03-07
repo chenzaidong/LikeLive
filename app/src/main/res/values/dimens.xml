@@ -23,8 +23,11 @@
     <dimen name="size_330">330px</dimen>
     <dimen name="size_320">320px</dimen>
     <dimen name="size_300">300px</dimen>
+    <dimen name="size_280">280px</dimen>
     <dimen name="size_200">200px</dimen>
     <dimen name="size_250">250px</dimen>
+    <dimen name="size_220">220px</dimen>
+    <dimen name="size_230">230px</dimen>
     <dimen name="size_180">180px</dimen>
     <dimen name="size_170">170px</dimen>
     <dimen name="size_150">150px</dimen>

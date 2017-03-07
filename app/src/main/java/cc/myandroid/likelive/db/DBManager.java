@@ -119,7 +119,7 @@ public class DBManager {
      *
      * @return
      */
-    public List<User> queryUserList() {
+    public List<User> queryUserList( ) {
         DaoMaster daoMaster = new DaoMaster(getReadableDatabase());
         DaoSession daoSession = daoMaster.newSession();
         UserDao userDao = daoSession.getUserDao();

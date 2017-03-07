@@ -13,6 +13,8 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.bitmap.BitmapTransformation;
 
+import java.io.File;
+
 import cc.myandroid.likelive.R;
 
 /**
@@ -27,9 +29,9 @@ public class ImageUtil {
     /**
      * 设置展位图和错误图
      *
-     * @param context
-     * @param url
-     * @param imageView
+     * @param context 上下文
+     * @param url 地址
+     * @param imageView 控件
      */
     public static void laodImage(Context context, String url, ImageView imageView) {
         Glide.with(context)
@@ -39,6 +41,31 @@ public class ImageUtil {
                 .into(imageView);
     }
 
+
+    /**
+     * 设置展位图和错误图
+     *
+     * @param context 上下文
+     * @param file 文件地址
+     * @param imageView 控件
+     */
+    public static void laodImage(Context context, File file, ImageView imageView) {
+        Glide.with(context)
+                .load(file)
+                .placeholder(R.mipmap.loading)
+                .error(R.mipmap.error)
+                .into(imageView);
+    }
+
+
+    /**
+     *
+     * @param context 上下文
+     * @param url 地址
+     * @param imageView 显示图片的控件
+     * @param type  显示图片类型 CIRCLE为圆形 ROUND为圆角
+     * @param round 圆角角度
+     */
     public static void laodImage(Context context, String url, ImageView imageView, int type,int round) {
         BitmapTransformation bitmapTransformation = null;
         switch (type) {
@@ -58,7 +85,31 @@ public class ImageUtil {
     }
 
 
-
+    /**
+     *
+     * @param context 上下文
+     * @param file 文件地址
+     * @param imageView 显示图片的控件
+     * @param type  显示图片类型 CIRCLE为圆形 ROUND为圆角
+     * @param round 圆角角度
+     */
+    public static void laodImage(Context context, File file, ImageView imageView, int type,int round) {
+        BitmapTransformation bitmapTransformation = null;
+        switch (type) {
+            case CIRCLE:
+                bitmapTransformation = new GlideCircleTransform(context);
+                break;
+            case ROUND:
+                bitmapTransformation = new GlideRoundTransform(context,round);
+                break;
+        }
+        Glide.with(context)
+                .load(file)
+                .placeholder(R.mipmap.loading)
+                .error(R.mipmap.error)
+                .transform(bitmapTransformation)
+                .into(imageView);
+    }
 
 
 
